@@ -9,9 +9,9 @@
 <body>
     <div class="Jumbotron">
         <h1 align="center" style="margin-top: auto;">Benvenuto, {{ user_info['display_name'] }}!</h1>  
-    </div>
     {% if user_info['images'] %}
         <img src="{{ user_info['images'][0]['url'] }}" width="200">
     {% endif %}
+    </div>
 </body>
 </html>
