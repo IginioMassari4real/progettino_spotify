@@ -73,3 +73,9 @@ a:hover {
         transform: translateY(0px);
     }
   }
+
+@media (max-width: 768px) {
+    .Jumbotron h1 {
+        font-size: 2em;
+    }
+}
