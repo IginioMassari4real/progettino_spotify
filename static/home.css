@@ -1,0 +1,75 @@
+/* spotify-style.css */
+body {
+    background-color: #121212; /* Sfondo scuro tipico di Spotify */
+    color: #FFFFFF; /* Testo chiaro */
+    font-family: 'Circular', 'Helvetica Neue', 'Arial', sans-serif; /* Font moderno */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1DB954; /* Verde tipico di Spotify */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transizione per animazioni */
+}
+
+/* Effetto dinamico al passaggio del mouse */
+h1:hover {
+    transform: scale(1.1); /* Leggera espansione */
+    color: #1ED760; /* Colore leggermente più chiaro al passaggio del mouse */
+}
+
+img {
+    border-radius: 50%; /* Immagine circolare */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombra per evidenziare l'immagine */
+    margin-top: 20px;
+    transition: transform 0.3s ease; /* Transizione per effetto hover */
+}
+
+/* Effetto dinamico sull'immagine al passaggio del mouse */
+img:hover {
+    transform: scale(1.05); /* Leggera espansione dell'immagine */
+}
+
+a {
+    color: #1DB954; /* Colore verde tipico di Spotify */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transizione sul colore */
+}
+
+a:hover {
+    color: #1ED760; /* Colore leggermente più chiaro al passaggio del mouse */
+    text-decoration: underline; /* Linea sotto al passaggio del mouse */
+}
+
+.Jumbotron h1 {
+    color: #1DB954; /* Verde tipico di Spotify */
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 2;
+    position: relative;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.05em;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+  }
