@@ -74,8 +74,49 @@ a:hover {
     }
   }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
     .Jumbotron h1 {
         font-size: 2em;
     }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1DB954; /* Verde tipico di Spotify */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transizione per animazioni */
+}
+
+li {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #1DB954; /* Verde tipico di Spotify */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transizione per animazioni */
+}
+
+a {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #1DB954; /* Verde tipico di Spotify */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transizione per animazioni */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;  /* Aggiunge spazio dentro le celle */
+    text-align: left;
+    border-bottom: 1px solid #1DB954;
+
+}
+
+th {
+    background-color: #121212; /* Sfondo scuro tipico di Spotify */
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #1DB954; /* Verde tipico di Spotify */
+
 }
