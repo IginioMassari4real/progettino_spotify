@@ -5,7 +5,7 @@ from spotipy.oauth2 import SpotifyOAuth
 #le tue credenziali le trovi nella dashboard di prima
 SPOTIFY_CLIENT_ID = "9214bb00011c4ac88e9abb2b6ce04ae1"
 SPOTIFY_CLIENT_SECRET = "9412f99b5b05479ba88d0e6fa06d3afd"
-SPOTIFY_REDIRECT_URI = "https://5000-iginiomassa-progettinos-39comgz6d2n.ws-eu117.gitpod.io/callback" #dopo il login andiamo qui
+SPOTIFY_REDIRECT_URI = "https://5000-iginiomassa-progettinos-h6b82l1glre.ws-eu117.gitpod.io/callback" #dopo il login andiamo qui
 
 app = Flask(__name__)
 app.secret_key = 'chiave_per_session' #ci serve per identificare la sessione
@@ -15,8 +15,14 @@ sp_oauth = SpotifyOAuth(
     client_id=SPOTIFY_CLIENT_ID,
     client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri=SPOTIFY_REDIRECT_URI,
-    scope="user-read-private" #permessi x informazioni dell'utente
+    scope="user-read-private", #permessi x informazioni dell'utente
+    show_dialog=True #forziamo la richiesta di inserire new credenziali
 )
+
+@app.route('/logout')
+def logout():
+    session.clear() #cancelliamo l'access token salvato in session
+    return redirect(url_for('login'))
 
 @app.route('/')
 def login():
@@ -38,6 +44,10 @@ def home():
     sp = spotipy.Spotify(auth=token_info['access_token']) #usiamo il token per ottenere i dati del profilo
     user_info = sp.current_user()
     print(user_info) #capiamo la struttura di user_info per usarle nel frontend
-    return render_template('home.html', user_info=user_info) #passo le info utente all'home.html
+
+    playlists = sp.current_user_playlists() #sempre tramite il token sp preso prima
+    playlists_info = playlists['items'] #prendiamo solo la lista delle playlist
+    
+    return render_template('home.html', user_info=user_info, playlists=playlists_info)
 
 app.run(debug=True)
