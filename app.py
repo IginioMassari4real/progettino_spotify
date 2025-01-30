@@ -58,10 +58,12 @@ def view_songs(playlist_id):
 
     sp = spotipy.Spotify(auth=token_info['access_token'])
     
-    # Otteniamo le informazioni sulla playlist e i suoi brani
     playlist = sp.playlist(playlist_id)
-    tracks = playlist['tracks']['items']  # Lista di canzoni
-
+    
+    results = sp.playlist_items(playlist_id)
+    tracks = results['items']  # Lista di canzoni
+    
+    # Pagina di ritorno
     return render_template('playlist.html', playlist=playlist, tracks=tracks)
 
 app.run(debug=True)
